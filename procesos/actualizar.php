@@ -7,8 +7,8 @@
     $id = $_POST['id'];
 
     $datos = array(
-        "paterno" => $_POST['primer'],
-        "materno" => $_POST['segundo'],
+        "primer" => $_POST['primer'],
+        "segundo" => $_POST['segundo'],
         "nombre" => $_POST['nombre'],
         "fecha_nacimiento" => $_POST['fechaNacimiento']
     );
