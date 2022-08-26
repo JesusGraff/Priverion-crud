@@ -26,6 +26,6 @@ class conexion {
 }
 
 $objeto = new conexion();
-var_dump($objeto->conectar())
+
 
 ?>

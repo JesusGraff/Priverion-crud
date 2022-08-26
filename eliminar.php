@@ -1,6 +1,14 @@
 <?php 
-
+include "./clases/conexion.php"; 
+include "./clases/crud.php";
 include "./header.php"; ?>
+
+<?php 
+
+$crud = new Crud();   
+$id = $_POST["id"];
+$datos = $crud->obtenerDocumento($id);
+?>
 
 
 <div class="container">
@@ -22,10 +30,10 @@ include "./header.php"; ?>
                 </thead>
                 <tbody>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <td><?php echo $datos->primer; ?></td>
+                    <td><?php echo $datos->segundo; ?></td>
+                    <td><?php echo $datos->nombre; ?></td>
+                    <td><?php echo $datos->fecha_nacimiento; ?></td>>
                     </tr>
                 </tbody>
             </table>
@@ -34,8 +42,8 @@ include "./header.php"; ?>
   <p>¿Estas seguro de eliminar este registro?</p>
   <p>Una vez eliminado no podra ser recuperado!</p>
 </div>
-            <form action="" method="POST">
-                <input type="text" name="id" value="" hidden>
+            <form action="./procesos/eliminar.php" method="POST">
+            <input type="text" name="id" value="<?php echo $datos->_id; ?>" hidden>
                 <button class="btn btn-danger">
                 <i class="fa-solid fa-user-xmark"></i> Eliminar
                 </button>

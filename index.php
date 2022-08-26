@@ -1,3 +1,10 @@
+<?php 
+   require_once "./clases/conexion.php";
+   require_once "./clases/crud.php";
+   $crud =  new Crud();
+   $datos = $crud->mostrarDatos();
+?>
+
 
 <?php include "./header.php";?>
  
@@ -22,25 +29,33 @@
                         <th>Eliminar</th>
                     </thead>
                     <tbody>
+                    <?php 
+                            foreach ($datos as $item) {
+                                
+                            
+                        ?>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo $item->primer; ?></td>
+                            <td><?php echo $item->segundo; ?></td>
+                            <td><?php echo $item->nombre; ?></td>
+                            <td><?php echo $item->fecha_nacimiento; ?></td>
                             <td>
-                                <form action="" method="post">
-                                <button class="btn btn-warning">
+                            <form action="./actualizar.php" method="post">
+                                <input type="text" hidden  value = "<?php echo $item->_id?>" name = "id">
+                                    <button class="btn btn-warning">
                                     <i class="fa-solid fa-user-pen"></i>
-                                </button>
+                                    </button>
                                 </form></td>
                             <td>
-                                <form action="" method="post">
-                                <button class="btn btn-danger">
+                            <form action="./eliminar.php" method="POST">
+                                    <input type="text" hidden value = "<?php echo $item->_id?>" name = "id">
+                                    <button class="btn btn-danger">
                                     <i class="fa-solid fa-user-xmark"></i>
-                                </button>
+                                    </button>
                                 </form>
                             </td>
                         </tr>
+                        <?php }?>
                     </tbody>
                 </table>
             </div>
