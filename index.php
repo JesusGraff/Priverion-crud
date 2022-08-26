@@ -8,7 +8,7 @@
             <div class="card mt-4">
             <div class="card-body">
                 <h2>Crud Priverion</h2>
-                <a href="" class="btn btn-primary">
+                <a href="./agregar.php" class="btn btn-primary">
                     Agregar nuevo dato
                 </a>
                 <hr>
